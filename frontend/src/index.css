@@ -4,16 +4,56 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap');
 
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.App{
+  font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+
+.theme-dark {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --border-color: #333333;
+}
+
+
+@layer utilities {
+  .bg-primary {
+    @apply bg-gray-950 
+  }
+  .bg-secondary {
+    @apply bg-gray-850
+  }
+  .text-primary {
+    @apply text-gray-550
+  }
+  .text-secondary {
+    @apply text-gray-650
+  }
+  .border-dark {
+    @apply border border-gray-750
+  }
+  .padding-container {
+    @apply px-6 lg:px-32 3xl:px-0;
+  }
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+  .flexStart {
+    @apply flex items-center justify-start;
+  }
+
+  .flexEnd {
+    @apply flex items-center justify-end;
+  }
+
+  .max-container {
+    @apply mx-auto max-w-[1920px];
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
