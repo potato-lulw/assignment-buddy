@@ -3,14 +3,21 @@ import dotenv from 'dotenv'
 
 
 
-// express app
+// Express app
 const app = express();
-
-app.use(express.json());
 dotenv.config();
 
-const port = process.env.PORT;
+// Middleware
+app.use(express.json());
 
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next();
+})
+
+
+// Routes
+const port = process.env.PORT;
 app.get('/', (req, res) => {
     res.send("Hello")
 })
