@@ -39,11 +39,11 @@ const Navbar = () => {
                     } w-full md:block md:w-auto relative`}
                     id='navbar-default'
                 >
-                    <ul className=' flex flex-col p-4 md:p-0 mt-4 border border-dark rounded-lg bg-primary md:flex-row  md:mt-0 md:border-0 md:bg-primary absolute top-0 right-0 w-[100%] text-center gap-2'>
+                    <ul className=' flex flex-col p-4 md:p-0 border border-dark rounded-lg bg-primary md:flex-row  md:mt-0 md:border-0 md:bg-primary md:static absolute top-0 right-0 w-[100%] text-center gap-4 md:gap-8 '>
                         {links.map((link) => (
                             <li
                                 key={link.key}
-                                className='block py-2 px-3 text-white bg-secondary  md:p-0 hover:text-secondary rounded'
+                                className='block py-2 px-3 text-white bg-secondary md:bg-primary md:p-0 hover:text-secondary rounded'
                             >
                                 <Link to={link.href} onClick={toggleNav}>
                                     {link.label}
