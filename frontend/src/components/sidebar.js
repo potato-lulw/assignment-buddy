@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import { FaAngleDown } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import useSubjects from '../hooks/useSubjects';
 
 const Sidebar = () => {
-  const subjects = [
-    { name: "NLP", key: "nlp", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] },
-    { name: "BIS", key: "bis", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] },
-    { name: "QTCV", key: "qtcv", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] },
-    { name: "DT", key: "DT", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] },
-    { name: "CNS", key: "cns", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] }
-  ];
+  const {subjects, setSubjects} = useSubjects();
 
   const [expandedSubject, setExpandedSubject] = useState(null);
 
