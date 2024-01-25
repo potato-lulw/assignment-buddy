@@ -4,7 +4,7 @@ import Navbar from './components/navbar';
 
 function App() {
   return (
-    <div className="App bg-secondary h-[100vh] text-primary">
+    <div className="App bg-secondary h-auto min-h-[100vh] text-primary">
       <BrowserRouter>
         <Navbar/>
         <div className="pages">
