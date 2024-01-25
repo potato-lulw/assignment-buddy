@@ -13,7 +13,7 @@ const Home = () => {
     <div className="home flex md:flex-row flex-col flex-wrap">
       {/* Button for toggling sidebar on small screens */}
       <button
-        className="block md:hidden p-2 bg-blue-500 text-white flex align-middle items-center justify-center gap-2"
+        className="md:hidden p-2 bg-blue-500 text-white flex align-middle items-center justify-center gap-2"
         onClick={toggleSidebar}
       >
         Subjects <FaAngleRight className={`${hidden ? 'rotate-0 transition': "rotate-90 transition"} `}/>
