@@ -1,6 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from './pages/home';
 import Navbar from './components/navbar';
+import AddAssignment from './components/add-assignment';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path='/' element={<Home/>}/>
+            <Route path='/add-assignment' element={<AddAssignment/>}/> 
           </Routes>
         </div>
       </BrowserRouter>

@@ -57,3 +57,10 @@
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+select { 
+  /* for Firefox */ 
+  -moz-appearance: none; 
+  /* for Safari, Chrome, Opera */ 
+  -webkit-appearance: none; 
+} 

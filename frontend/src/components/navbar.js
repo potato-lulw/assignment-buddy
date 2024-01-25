@@ -5,7 +5,7 @@ import { FaBars } from 'react-icons/fa6';
 const Navbar = () => {
     const links = [
         { label: 'Home', key: 'home', href: '/' },
-        { label: 'Add Assignment', key: 'add_assignment', href: '/addAssignment' },
+        { label: 'Add Assignment', key: 'add_assignment', href: '/add-assignment' },
         { label: 'About', key: 'about', href: '/about' },
         { label: 'Feedback', key: 'feedback', href: '/feedback' },
     ];
