@@ -82,6 +82,7 @@ const AddAssignment = () => {
                 value={subject}
                 onChange={handleSubjectChange}
                 id='subject'
+                required
             >
                 {subjects.map((subject) => (
                     <option value={subject.key} key={subject.key}>
@@ -96,6 +97,7 @@ const AddAssignment = () => {
                 className='w-[80%] bg-primary px-8 py-4 rounded-lg'
                 value={assignmentNumber}
                 onChange={handleAssignmentNumberChange}
+                required
             />
             <label className='text-primary ' htmlFor='questions'>Type it out</label>
             <textarea
@@ -104,6 +106,7 @@ const AddAssignment = () => {
                 value={questions.join('\n')}
                 onChange={handleQuestionsChange}
                 id='questions'
+                required
             ></textarea>
 
             <label className='text-primary' htmlFor='btn'>Drop 'Em All!</label>
