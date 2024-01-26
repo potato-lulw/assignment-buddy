@@ -1,10 +1,12 @@
+// sidebar.js
+
 import React, { useState } from 'react';
 import { FaAngleDown } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import useSubjects from '../hooks/useSubjects';
 
 const Sidebar = () => {
-  const {subjects, setSubjects} = useSubjects();
+  const {subjects} = useSubjects();
 
   const [expandedSubject, setExpandedSubject] = useState(null);
 

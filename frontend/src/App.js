@@ -2,14 +2,14 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from './pages/home';
 import Navbar from './components/navbar';
 import AddAssignment from './components/add-assignment';
-import { UserContext, UserContextProvider } from './context/userContextProvider';
+import { UserContext} from './context/userContextProvider';
 import { useContext } from 'react';
 import AddUser from './components/add-user';
 
 function App() {
 
   const { userName } = useContext(UserContext);
-  console.log(userName)
+  console.log("username: " + userName)
   return (
     
     

@@ -4,7 +4,7 @@ import useSubjects from '../hooks/useSubjects';
 
 const AddAssignment = () => {
 
-    const {subjects, setSubjects} = useSubjects();
+    const {subjects} = useSubjects();
     const [droppedFiles, setDroppedFiles] = useState([]);
     const onDrop = useCallback((acceptedFiles) => {
         setDroppedFiles(acceptedFiles);
