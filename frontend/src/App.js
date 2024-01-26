@@ -14,7 +14,7 @@ function App() {
     
     
 
-      <div className="App bg-secondary h-auto min-h-[100vh] text-primary">
+      <div className="App bg-secondary h-auto min-h-[100vh] text-primary w-full ">
         <BrowserRouter>
           <Navbar />
 
