@@ -5,7 +5,7 @@ const useSubjects = () => {
     { name: "NLP", key: "nlp", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] },
     { name: "BIS", key: "bis", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] },
     { name: "QTCV", key: "qtcv", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] },
-    { name: "DT", key: "DT", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] },
+    { name: "DT", key: "dt", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] },
     { name: "CNS", key: "cns", assignments: [{ name: 'Assignment 1', href: '/' }, { name: 'Assignment 2', href: '/' }, { name: 'Assignment 3', href: '/' }] }
   ];
 
