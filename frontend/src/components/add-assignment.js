@@ -4,12 +4,7 @@ import useSubjects from '../hooks/useSubjects';
 import useApiRequest from '../hooks/useApiRequest';
 
 
-// Placeholder for the PDF extraction utility function
-// const extractQuestionsFromPDF = async (file) => {
-//     // Implement the logic to extract questions from the PDF file
-//     // Return an array of questions
-//     return ['Question 1 from PDF', 'Question 2 from PDF'];
-// };
+
 
 const AddAssignment = () => {
     const { subjects } = useSubjects();
@@ -23,19 +18,6 @@ const AddAssignment = () => {
     const onDrop = useCallback(async (acceptedFiles) => {
         setDroppedFiles(acceptedFiles);
 
-        // // Handle PDF files to extract questions
-        // const pdfQuestions = await Promise.all(
-        //     acceptedFiles
-        //         .filter((file) => file.type === 'application/pdf')
-        //         .map(async (file) => {
-        //             const pdfQuestions = await extractQuestionsFromPDF(file);
-        //             return pdfQuestions;
-        //         })
-        // );
-
-        // // Flatten the array of arrays into a single array of questions
-        // const flattenedQuestions = pdfQuestions.flat();
-        // setQuestions(flattenedQuestions);
     }, []);
 
     const handleSubjectChange = (event) => {
@@ -93,7 +75,7 @@ const AddAssignment = () => {
     }
 
     return (
-        <form className='flex flex-col padding-container justify-center align-middle gap-4 items-center mt-4 w-[80%] mx-auto'>
+        <form className='flex flex-col  justify-center align-middle gap-4 items-center mt-4 w-[80%] mx-auto'>
             <label htmlFor='subject'>Subject</label>
             <select
                 className='w-[80%] bg-primary px-8 py-4 rounded-lg'
@@ -102,8 +84,8 @@ const AddAssignment = () => {
                 id='subject'
             >
                 {subjects.map((subject) => (
-                    <option value={subject.name} key={subject.key}>
-                        {subject.key}
+                    <option value={subject.key} key={subject.key}>
+                        {subject.name}
                     </option>
                 ))}
             </select>
