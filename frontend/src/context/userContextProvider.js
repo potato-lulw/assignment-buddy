@@ -2,25 +2,23 @@
 import React, { createContext, useState, useEffect } from 'react';
 
 export const UserContext = createContext({
-    userName: "",
-    setUserName: () => {}
+ userName: "",
+ setUserName: () => { }
 });
 
 export const UserContextProvider = ({ children }) => {
-  const [userName, setUserName] = useState('');
+ const [userName, setUserName] = useState(() => {
+    const storedUserName = localStorage.getItem('userName');
+    return storedUserName !== null ? storedUserName : '';
+ });
 
-  useEffect(() => {
+ useEffect(() => {
     localStorage.setItem('userName', userName);
-  }, [userName]);
+ }, [userName]);
 
-  useEffect(() => {
-    const storedUserName = localStorage.getItem('userName') ;
-    setUserName((prevUserName) => storedUserName || prevUserName);
-  }, []);
-
-  return (
+ return (
     <UserContext.Provider value={{ userName, setUserName }}>
       {children}
     </UserContext.Provider>
-  );
+ );
 };
