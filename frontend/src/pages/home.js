@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/sidebar';
 import { FaAngleRight } from "react-icons/fa6";
-import AssignmentDetails from '../components/assignment-details';
+import Cards from '../components/cards';
+
+import { useSubjectContext } from '../context/subjectContextProvider';
+import { useCategoryContext } from '../context/categoryContextProvider';
 
 const Home = () => {
   const [hidden, setHidden] = useState(true);
-  
+  const {selectedSubject} = useSubjectContext();
+  const {selectedCategory} = useCategoryContext();
+
   const toggleSidebar = () => {
     setHidden(!hidden);
   };
@@ -24,8 +29,8 @@ const Home = () => {
         <Sidebar />
       </div>
 
-      <div className="w-[100%] flex-1 overflow-hidden border ">
-        <AssignmentDetails  />
+      <div className="w-[100%] flex-1 overflow-hidden ">
+        <Cards selectedSubject = {selectedSubject} selectedCategory={selectedCategory} />
       </div>
     </div>
   );
