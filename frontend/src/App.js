@@ -25,6 +25,7 @@ function App() {
               {!userName && <Route path="/" element={<AddUser />}/>}
               {userName && (
                 <>
+                  <Route path='/' element ={<AddUser/>} />
                   <Route path="/home" element={<Home />} />
                   <Route path="/add-assignment" element={<AddAssignment />} />
                 </>

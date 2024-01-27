@@ -1,14 +1,20 @@
 // AddUser.jsx
-import React, { useState, useContext} from 'react';
+import React, { useState, useContext, useEffect} from 'react';
 import { UserContext } from '../context/userContextProvider';
 
 import { useNavigate } from 'react-router-dom';
 
 
 const AddUser = () => {
-  const { setUserName } = useContext(UserContext);
+  const { userName, setUserName } = useContext(UserContext);
   const [name, setName] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(userName !== ""){
+      navigate('/home')
+    }
+  }, [])
   const handleAddUser = () => {
     if (name.trim() !== '') {
       setUserName(name);
@@ -17,6 +23,7 @@ const AddUser = () => {
       navigate('/home')
     }
   };
+  console.log(userName)
 
   return (
     <div className='flex flex-col min-h-[80vh] justify-center align-middle'>
