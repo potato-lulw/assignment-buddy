@@ -4,7 +4,27 @@ import useSubjects from '../hooks/useSubjects';
 import useApiRequest from '../hooks/useApiRequest';
 
 
+const isValidQuestion = (question) => {
+    // Check if the question is a valid string
+    if (typeof question !== 'string') {
+        return false;
+    }
 
+    // Remove leading and trailing whitespaces
+    const trimmedQuestion = question.trim();
+
+    // Check if the question is not empty and has a length of at least 5 characters
+    if (trimmedQuestion.length < 5) {
+        return false;
+    }
+
+    // Check if the question is not "undefined" or "null"
+    if (trimmedQuestion.toLowerCase() === 'undefined' || trimmedQuestion.toLowerCase() === 'null') {
+        return false;
+    }
+
+    return true;
+};
 
 const AddAssignment = () => {
     const { subjects } = useSubjects();
@@ -36,14 +56,16 @@ const AddAssignment = () => {
         event.preventDefault();
         console.log(subject);
         console.log(assignmentNumber);
-        console.log(questions);
+        
+        const validQuestions = questions.filter(question => isValidQuestion(question));
+        console.log(validQuestions);
 
         try {
             // Make a POST request to generate the assignment
             const generateResponse = await sendRequest('http://65.0.14.141:4000/api/generate', 'POST', {
                 subject: subject,
                 number: assignmentNumber,
-                qs: questions,
+                qs: validQuestions,
 
             });
 
@@ -108,6 +130,8 @@ const AddAssignment = () => {
                 id='questions'
                 required
             ></textarea>
+
+            
 
             <label className='text-primary' htmlFor='btn'>Drop 'Em All!</label>
             <div
