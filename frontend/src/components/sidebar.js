@@ -12,11 +12,11 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className='flex flex-col p-10 bg-primary rounded-md  min-w-[250px]'>
+      <div className='flex flex-col p-10 bg-primary rounded-md  min-w-[250px] shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
         <ul className='flex flex-col w-full gap-4'>
           {subjects.map((subject) => (
             <li
-              className='w-full bg-secondary px-6 py-4 flex flex-col border border-dark gap-2 align-middle justify-center cursor-pointer transition rounded-md font-medium'
+              className='w-full bg-secondary px-6 py-4 flex flex-col border border-dark gap-2 align-middle justify-center cursor-pointer transition rounded-md font-medium shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px]'
               key={subject.key}
               onClick={() => setExpandedSubject((prev) => (prev === subject.key ? null : subject.key))}
             >
