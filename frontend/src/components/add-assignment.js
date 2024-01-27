@@ -36,6 +36,7 @@ const AddAssignment = () => {
     const [isDownloaded, setIsDownloaded] = useState(false);
     const { sendRequest, isLoading, error } = useApiRequest();
     const [isTemp, setIsTemp] = useState(false);
+    const [assignmentType, setAssignmentType] = useState('assignment');
 
     const onDrop = useCallback(async (acceptedFiles) => {
         setDroppedFiles(acceptedFiles);
@@ -57,6 +58,7 @@ const AddAssignment = () => {
     const generateAssignment = async (event) => {
         event.preventDefault();
         console.log(subject);
+        console.log(assignmentType);
         console.log(assignmentNumber);
 
         const validQuestions = questions.filter(question => isValidQuestion(question));
@@ -76,18 +78,19 @@ const AddAssignment = () => {
                 subject: subject,
                 number: assignmentNumber,
                 qs: validQuestions,
-                username: userName, 
-
+                username: userName,
+                type: assignmentType,
+                authKey : "WQdaGUpa1gccVmEpIrh3Ax9b41OCTnSsKmFm"
             });
 
             if (generateResponse.success) {
                 console.log('Success generating assignment:', generateResponse.data);
                 setIsDownloaded(true);
                 const temp = generateResponse.temp;
-                if(temp === false) {
+                if (temp === false) {
                     setIsTemp(false)
                 }
-                else {setIsTemp(temp)};
+                else { setIsTemp(temp) };
             } else {
                 console.error('Error generating assignment:', generateResponse.data);
             }
@@ -124,6 +127,34 @@ const AddAssignment = () => {
                     </option>
                 ))}
             </select>
+            <div className='flex gap-2'>
+                <label htmlFor="radioAssignment">Assignment</label>
+                <input
+                    type="radio"
+                    name="assignmentType"
+                    id="radioAssignment"
+                    checked={assignmentType === 'assignment'}
+                    onChange={() => setAssignmentType('assignment')}
+                />
+
+                <label htmlFor="radioExperiment">Experiment</label>
+                <input
+                    type="radio"
+                    name="assignmentType"
+                    id="radioExperiment"
+                    checked={assignmentType === 'experiment'}
+                    onChange={() => setAssignmentType('experiment')}
+                />
+            </div>
+
+            {
+                assignmentType === 'experiment' && (
+                    <div>
+                        {/* batch */}
+                    </div>
+                )
+            }
+
             <label htmlFor='number'>Assignment Number</label>
             <input
                 type='number'
@@ -168,17 +199,17 @@ const AddAssignment = () => {
 
             {
                 !isDownloaded ? (<button className='w-[80%] border-gray-650 border-2 p-4 rounded-lg mb-4' onClick={generateAssignment}>
-                    {isLoading ? <ProgressBar/> : 'SEND IT'}
+                    {isLoading ? <ProgressBar /> : 'SEND IT'}
                 </button>) : (
                     <div className='flex flex-col mb-4'>
                         <p>This version of assignment will be deleted after 5 mins!</p>
-                        <a href={`http://65.0.14.141:4000/api/view/${subject}/${!isTemp ? assignmentNumber: assignmentNumber+isTemp}`} className=' border-dark border-2 p-4 rounded-lg mb-4 bg-blue-500 text-center' onClick={handleDownloadClick}>
-                        Download
+                        <a href={`http://65.0.14.141:4000/api/view/${subject}/${!isTemp ? assignmentNumber : assignmentNumber + isTemp}`} className=' border-dark border-2 p-4 rounded-lg mb-4 bg-blue-500 text-center' onClick={handleDownloadClick}>
+                            Download
                         </a>
-                        
+
                     </div>
-                    
-                    
+
+
                 )
             }
 
