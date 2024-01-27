@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import useSubjects from '../hooks/useSubjects';
 import useApiRequest from '../hooks/useApiRequest';
+import ProgressBar from './progress-bar';
 
 
 const isValidQuestion = (question) => {
@@ -34,6 +35,7 @@ const AddAssignment = () => {
     const [droppedFiles, setDroppedFiles] = useState([]);
     const [isDownloaded, setIsDownloaded] = useState(false);
     const { sendRequest, isLoading, error } = useApiRequest();
+    const [isTemp, setIsTemp] = useState(false);
 
     const onDrop = useCallback(async (acceptedFiles) => {
         setDroppedFiles(acceptedFiles);
@@ -56,26 +58,36 @@ const AddAssignment = () => {
         event.preventDefault();
         console.log(subject);
         console.log(assignmentNumber);
-        
+
         const validQuestions = questions.filter(question => isValidQuestion(question));
         console.log(validQuestions);
 
+        if (!assignmentNumber || validQuestions.length === 0) {
+            console.error('Assignment number or questions cannot be empty.');
+            return;
+        }
+
         try {
+            // Retrieve userName from localStorage
+            const userName = localStorage.getItem('userName');
+
             // Make a POST request to generate the assignment
             const generateResponse = await sendRequest('http://65.0.14.141:4000/api/generate', 'POST', {
                 subject: subject,
                 number: assignmentNumber,
                 qs: validQuestions,
+                username: userName, 
 
             });
 
             if (generateResponse.success) {
                 console.log('Success generating assignment:', generateResponse.data);
-
-                
                 setIsDownloaded(true);
-
-               
+                const temp = generateResponse.temp;
+                if(temp === false) {
+                    setIsTemp(false)
+                }
+                else {setIsTemp(temp)};
             } else {
                 console.error('Error generating assignment:', generateResponse.data);
             }
@@ -131,7 +143,7 @@ const AddAssignment = () => {
                 required
             ></textarea>
 
-            
+
 
             <label className='text-primary' htmlFor='btn'>Drop 'Em All!</label>
             <div
@@ -156,11 +168,17 @@ const AddAssignment = () => {
 
             {
                 !isDownloaded ? (<button className='w-[80%] border-gray-650 border-2 p-4 rounded-lg mb-4' onClick={generateAssignment}>
-                    {isLoading ? 'Sending...' : 'SEND ITT'}
+                    {isLoading ? <ProgressBar/> : 'SEND IT'}
                 </button>) : (
-                    <a href= {`http://65.0.14.141:4000/api/view/${subject}/${assignmentNumber}`} className='w-[80%] border-dark border-2 p-4 rounded-lg mb-4 bg-blue-500 text-center' onClick={handleDownloadClick}>
+                    <div className='flex flex-col mb-4'>
+                        <p>This version of assignment will be deleted after 5 mins!</p>
+                        <a href={`http://65.0.14.141:4000/api/view/${subject}/${!isTemp ? assignmentNumber: isTemp}`} className=' border-dark border-2 p-4 rounded-lg mb-4 bg-blue-500 text-center' onClick={handleDownloadClick}>
                         Download
-                    </a>
+                        </a>
+                        
+                    </div>
+                    
+                    
                 )
             }
 
