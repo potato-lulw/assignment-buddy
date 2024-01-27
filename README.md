@@ -58,8 +58,8 @@ See `contributing.md` for ways to get started.
 
 ### Owners
 
-- [Mayur Hiwale](https://www.github.com/octokatherine) - Lead Developer, Backend Development
-- [Om Patil](https://www.github.com/octokatherine) - Frontend Development
+- [Mayur Hiwale](https://www.github.com/isenseaura) - Lead Developer, Backend Development
+- [Om Patil](https://www.github.com/potato-lulw) - Frontend Development
 
 ###  Contributors
-- [Himanshu Ranjan](https://www.github.com/octokatherine) - Bug Report
+- [Himanshu Ranjan](https://www.github.com/RanjanH) - Bug Report
