@@ -1,4 +1,4 @@
-WebApp Link : http://65.0.14.141/home
+WebApp Link : http://65.0.14.141/
 
 # Assignment Buddy API
 
