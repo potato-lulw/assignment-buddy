@@ -26,7 +26,7 @@ const Navbar = () => {
                 <button
                     onClick={toggleNav}
                     type='button'
-                    className='inline-flex items-center p-2 justify-center md:hidden text-xl hover:rotate-45 transition'
+                    className='inline-flex items-center p-2 justify-center md:hidden text-xl hover:translate-x-[-5px] transition'
                     aria-controls='navbar-default'
                     aria-expanded='false'
                 >

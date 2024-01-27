@@ -172,7 +172,7 @@ const AddAssignment = () => {
                 </button>) : (
                     <div className='flex flex-col mb-4'>
                         <p>This version of assignment will be deleted after 5 mins!</p>
-                        <a href={`http://65.0.14.141:4000/api/view/${subject}/${!isTemp ? assignmentNumber: isTemp}`} className=' border-dark border-2 p-4 rounded-lg mb-4 bg-blue-500 text-center' onClick={handleDownloadClick}>
+                        <a href={`http://65.0.14.141:4000/api/view/${subject}/${!isTemp ? assignmentNumber: assignmentNumber+isTemp}`} className=' border-dark border-2 p-4 rounded-lg mb-4 bg-blue-500 text-center' onClick={handleDownloadClick}>
                         Download
                         </a>
                         

@@ -14,7 +14,7 @@ const AddUser = () => {
     if(userName !== ""){
       navigate('/home')
     }
-  }, [])
+  }, [userName, navigate])
   const handleAddUser = () => {
     if (name.trim() !== '') {
       setUserName(name);
