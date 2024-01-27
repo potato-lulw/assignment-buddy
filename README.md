@@ -36,7 +36,7 @@ As of now, our webapp does NOT include any kind of graphical content (including 
 
 #### 4) What are Phoenix's thoughts about this?
 
-Well, does it matter? As we all know Phoenix's E ability (fireball) is to heal himself while damaging others around. In the similar way, for his own 'academic' satisfaction, he makes us suffer... JUST KIDDING! HAH!
+Well, does it matter? As we all know Phoenix's E ability (fireball) is to heal himself while damaging others around. In a similar way, for his own 'academic' satisfaction, he makes us suffer... JUST KIDDING! HAH!
 
 
 
