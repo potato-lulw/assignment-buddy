@@ -52,6 +52,7 @@
   .max-container {
     @apply mx-auto max-w-[1920px];
   }
+  
 }
 
 .hide-scrollbar::-webkit-scrollbar {
@@ -64,3 +65,19 @@ select {
   /* for Safari, Chrome, Opera */ 
   -webkit-appearance: none; 
 } 
+
+
+
+.blob {
+  animation: moveBlob 2s infinite;
+  z-index: 10;
+}
+
+@keyframes moveBlob {
+  0%, 100% {
+      left: -5%;
+  }
+  50% {
+      left: 105%;
+  }
+}

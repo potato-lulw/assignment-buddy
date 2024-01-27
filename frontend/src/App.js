@@ -5,6 +5,7 @@ import AddAssignment from './components/add-assignment';
 import { UserContext} from './context/userContextProvider';
 import { useContext } from 'react';
 import AddUser from './components/add-user';
+import OpenSource from './components/open-source';
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
     
     
 
-      <div className="App bg-secondary h-auto min-h-[100vh] min-w-[100vw] text-primary w-full ">
+      <div className="App bg-secondary h-auto min-h-[100vh]  text-primary w-full max-w[100vw]">
+        <OpenSource/>
         <BrowserRouter>
           <Navbar />
 
