@@ -14,6 +14,11 @@ const Home = () => {
   const toggleSidebar = () => {
     setHidden(!hidden);
   };
+  const handleCategoryClick = () => {
+    // Hide the sidebar when a category is clicked
+    setHidden(true);
+  };
+
 
   return (
     <div className="home flex md:flex-row flex-col flex-wrap">
@@ -26,7 +31,7 @@ const Home = () => {
       </button>
 
       <div className={`w-full md:w-1/4 md:mx-4 mt-4 md:block ${hidden ? 'hidden' : ''}`}>
-        <Sidebar />
+        <Sidebar onCategoryClick = {handleCategoryClick}/>
       </div>
 
       <div className="w-[100%] flex-1 overflow-hidden ">

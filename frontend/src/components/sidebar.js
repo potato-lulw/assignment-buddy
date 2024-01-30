@@ -8,7 +8,7 @@ import useSubjects from '../hooks/useSubjects';
 import { useSubjectContext } from '../context/subjectContextProvider';
 import { useCategoryContext } from '../context/categoryContextProvider';
 
-const Sidebar = () => {
+const Sidebar = ({onCategoryClick}) => {
   const { subjects } = useSubjects();
   const { selectedSubject, updateSelectedSubject } = useSubjectContext();
   const { selectedCategory, updateSelectedCategory } = useCategoryContext();
@@ -23,6 +23,8 @@ const Sidebar = () => {
 
   const handleCategoryClick = (categoryType) => {
     updateSelectedCategory(categoryType);
+    onCategoryClick();
+
   };
 
   return (
@@ -37,7 +39,7 @@ const Sidebar = () => {
               key={subject.key}
               onClick={() => handleSubjectClick(subject.key)}
             >
-              <div className='flex gap-2'>
+              <div className='flex gap-2 z-0'>
                 {subject.name}
                 <FaAngleDown className={`self-center ${expandedSubject === subject.key ? 'rotate-180 transition' : 'rotate-0 transition'}`} />
               </div>
