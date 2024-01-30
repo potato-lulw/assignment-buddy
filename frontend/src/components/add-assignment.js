@@ -37,6 +37,9 @@ const AddAssignment = () => {
     const { sendRequest, isLoading, error } = useApiRequest();
     const [isTemp, setIsTemp] = useState(false);
     const [assignmentType, setAssignmentType] = useState('assignment');
+    const [dateGiven, setDateGiven] = useState('');
+    const [dateSubmission, setDateSubmission] = useState('NIL');
+    const [key, setKey] = useState('');
 
     const onDrop = useCallback(async (acceptedFiles) => {
         setDroppedFiles(acceptedFiles);
@@ -72,6 +75,7 @@ const AddAssignment = () => {
         try {
             // Retrieve userName from localStorage
             const userName = localStorage.getItem('userName');
+            const key = localStorage.getItem('key') || '';
 
             // Make a POST request to generate the assignment
             const generateResponse = await sendRequest('http://65.0.14.141:4000/api/generate', 'POST', {
@@ -80,7 +84,7 @@ const AddAssignment = () => {
                 qs: validQuestions,
                 username: userName,
                 type: assignmentType,
-                authKey : "WQdaGUpa1gccVmEpIrh3Ax9b41OCTnSsKmFm"
+                authKey: key
             });
 
             if (generateResponse.success) {
@@ -111,6 +115,18 @@ const AddAssignment = () => {
         setIsDownloaded(false);
     }
 
+    const handleDateGivenChange = (event) => {
+        setDateGiven(event.target.value);
+    };
+
+    const handleDateSubmissionChange = (event) => {
+        setDateSubmission(event.target.value);
+    };
+
+    const handleKeyChange = (event) => {
+        setKey(event.target.value)
+    }
+
     return (
         <form className='flex flex-col  justify-center align-middle gap-4 items-center mt-4 w-[80%] mx-auto'>
             <label htmlFor='subject'>Subject</label>
@@ -127,7 +143,9 @@ const AddAssignment = () => {
                     </option>
                 ))}
             </select>
-            <div className='flex gap-2'>
+            <div className='flex gap-8'>
+                <div className='gap-2 flex'>
+
                 <label htmlFor="radioAssignment">Assignment</label>
                 <input
                     type="radio"
@@ -135,7 +153,10 @@ const AddAssignment = () => {
                     id="radioAssignment"
                     checked={assignmentType === 'assignment'}
                     onChange={() => setAssignmentType('assignment')}
+                    
                 />
+                </div>
+                <div className='gap-2 flex'>
 
                 <label htmlFor="radioExperiment">Experiment</label>
                 <input
@@ -145,6 +166,7 @@ const AddAssignment = () => {
                     checked={assignmentType === 'experiment'}
                     onChange={() => setAssignmentType('experiment')}
                 />
+                </div>
             </div>
 
             {
@@ -164,15 +186,36 @@ const AddAssignment = () => {
                 onChange={handleAssignmentNumberChange}
                 required
             />
-            <label className='text-primary ' htmlFor='questions'>Type it out</label>
+            <div className='flex flex-col md:flex-row justify-center w-full gap-12'>
+
+                <div className='text-center'>
+
+                    <label htmlFor='date-given'>Date given: </label>
+                    <input required type="date" name="date-given" id="date-given" className='bg-primary px-8 py-4 rounded-lg' value={dateGiven} onChange={handleDateGivenChange}/>
+                </div>
+
+                <div className='text-center'>
+
+                    <label htmlFor='date-given'>Date of Submission: </label>
+                    <input type="date" name="date-given" id="date-given" className='bg-primary px-8 py-4 rounded-lg' value={dateSubmission} onChange={handleDateSubmissionChange}/>
+                </div>
+            </div>
+
+            <label className='text-primary ' htmlFor='questions'>Type it out (1 question per line)</label>
             <textarea
                 className='w-[80%] h-[200px] bg-primary text-secondary border-dark px-8 py-4 rounded-lg'
-                placeholder='1) What is the meaning of life?'
+                placeholder='1) What is the meaning of life?
+2) Why are we still here?'
                 value={questions.join('\n')}
                 onChange={handleQuestionsChange}
                 id='questions'
                 required
             ></textarea>
+
+            
+                    <label htmlFor='key'>Key</label>
+                    <input type="text" name="key" id="key" className='w-[80%] bg-primary px-8 py-4 rounded-lg' value={key} onChange={handleKeyChange}/>
+
 
 
 
@@ -198,7 +241,7 @@ const AddAssignment = () => {
             </div>
 
             {
-                !isDownloaded ? (<button className='w-[80%] border-gray-650 border-2 p-4 rounded-lg mb-4' onClick={generateAssignment}>
+                !isDownloaded ? (<button className='w-[80%] border-gray-650 border-2 p-4 rounded-lg mb-4 hover:bg-primary transition' onClick={generateAssignment}>
                     {isLoading ? <ProgressBar /> : 'SEND IT'}
                 </button>) : (
                     <div className='flex flex-col mb-4'>

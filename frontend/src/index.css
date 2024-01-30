@@ -99,3 +99,7 @@ select {
   animation: changeColor 2s infinite;
 
 }
+
+input {
+  color-scheme: dark;
+}
