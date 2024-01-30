@@ -37,7 +37,7 @@ const Navbar = () => {
                 <div
                     className={`${
                         isNavOpen ? 'block' : 'hidden'
-                    } w-full md:block md:w-auto relative`}
+                    } w-full md:block md:w-auto relative z-10`}
                     id='navbar-default'
                 >
                     <ul className=' flex flex-col p-4 md:p-0 border border-dark rounded-lg bg-primary md:flex-row  md:mt-0 md:border-0 md:bg-primary md:static absolute top-0 right-0 w-[100%] text-center gap-4 md:gap-8 '>
