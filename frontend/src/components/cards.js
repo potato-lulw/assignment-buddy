@@ -12,17 +12,20 @@ const Cards = ({ selectedSubject, selectedCategory }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://65.0.14.141:4000/api/details/${selectedSubject}`);
-        const data = await response.json();
+        if (selectedSubject !== null) {
+          const response = await fetch(`http://65.0.14.141:4000/api/details/${selectedSubject}`);
+          const data = await response.json();
 
-        if (data.success) {
-          setAssignments(data.data.assignments);
-          setExperiments(data.data.experiments);
-          setQuestionbanks(data.data.questionbanks);
-          setLoading(false);
-        } else {
-          console.error('Failed to fetch data');
+          if (data.success) {
+            setAssignments(data.data.assignments);
+            setExperiments(data.data.experiments);
+            setQuestionbanks(data.data.questionbanks);
+            setLoading(false);
+          } else {
+            console.error('Failed to fetch data');
+          }
         }
+
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -50,7 +53,7 @@ const Cards = ({ selectedSubject, selectedCategory }) => {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">{`Details for ${selectedSubject}`}</h2>
+      <h2 className="text-2xl font-bold mb-4">{`${selectedSubject.toUpperCase()}`}</h2>
       {renderContent()}
     </div>
   );

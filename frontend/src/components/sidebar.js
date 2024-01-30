@@ -19,6 +19,10 @@ const Sidebar = ({onCategoryClick}) => {
   const handleSubjectClick = (subjectKey) => {
     setExpandedSubject((prev) => (prev === subjectKey ? null : subjectKey));
     updateSelectedSubject(subjectKey);
+    if(selectedCategory != null) {
+      updateSelectedCategory(null);
+    }
+    
   };
 
   const handleCategoryClick = (categoryType) => {
