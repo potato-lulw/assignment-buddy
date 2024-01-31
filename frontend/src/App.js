@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import AddUser from './components/add-user';
 import OpenSource from './components/open-source';
 import Footer from './components/footer';
+import EditAssignment from './components/edit-assignment';
 
 function App() {
   const { userName } = useContext(UserContext);
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/" element={<AddUser />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/add-assignment" element={<AddAssignment />} />
+                <Route path="/edit-assignment" element={<EditAssignment/>} />
               </>
             )}
           </Routes>
