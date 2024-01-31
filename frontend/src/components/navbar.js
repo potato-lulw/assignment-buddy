@@ -41,7 +41,7 @@ const Navbar = () => {
     <nav className='bg-primary text-primary border-dark shadow-[0_3px_10px_rgb(0,0,0,0.2)] '>
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto padding-container py-6'>
         <Link to='/home'>
-          <h1 className='font-bold italic text-xl' onClick={handleLogoClick}>Assignment Buddy</h1>
+          <h1 className='font-bold italic text-xl' onClick={handleLogoClick}>BIAS</h1>
         </Link>
 
         <button

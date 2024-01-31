@@ -12,7 +12,7 @@ const Welcome = ({ userName }) => {
           Feeling lost about upcoming <span className="text-blue-500 text-lg md:text-base">lab experiments</span> or unsure about what to study for the upcoming <span className="text-blue-500 text-lg md:text-base">exam</span>?
         </p>
         <p className="text-primary md:text-base text-sm">
-          Fret not! At <span className="text-accent">AssPal</span>, we've got your back!
+          Fret not! At <span className="text-accent">BIAS</span>, we've got your back!
         </p>
       </div>
 
