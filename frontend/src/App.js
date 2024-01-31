@@ -13,7 +13,7 @@ function App() {
   const { userName } = useContext(UserContext);
 
   return (
-    <div className="App bg-secondary flex flex-col min-h-screen text-primary">
+    <div className="App bg-primary flex flex-col min-h-screen text-primary">
       <OpenSource />
       <BrowserRouter>
         <Navbar />

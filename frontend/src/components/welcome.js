@@ -1,22 +1,18 @@
 import React from 'react';
+import { FaAngleRight } from 'react-icons/fa';
 
 const Welcome = ({ userName }) => {
   return (
     <div className="text-center p-4 padding-container flex flex-col align-middle justify-center md:mt-[10%] mt-8 gap-2">
-      <h1 className="md:text-8xl text-6xl font-bold mb-3">Hi <span className='text-blue-500'>{userName}!</span></h1>
-      <div className='flex flex-col '>
-        <p className="text-secondary font-medium italic md:text-base text-sm">
-          Struggling with <strong className="text-lg md:text-base">assignments</strong> when the submission is just around the corner?
-        </p>
-        <p className="text-secondary font-medium italic md:text-base text-sm">
-          Feeling lost about upcoming <span className="text-blue-500 text-lg md:text-base">lab experiments</span> or unsure about what to study for the upcoming <span className="text-blue-500 text-lg md:text-base">exam</span>?
-        </p>
-        <p className="text-primary md:text-base text-sm">
-          Fret not! At <span className="text-accent">BIAS</span>, we've got your back!
-        </p>
-      </div>
+      <h1 className="md:text-8xl text-6xl font-bold mb-3">Hi <span className='text-tertiary'>{userName}!</span></h1>
 
-      <p className="text-sm mt-2">Please select a subject and category to get started.</p>
+      <p className="text-sm mt-2 text-secondary">Please select a subject and category to get started.</p>
+
+      {/* Button with hover effect */}
+      <button className="group flex justify-center bg-primary border-dark px-4 py-2 mt-2 text-secondary hover:text-primary transition w-[80%] self-center ">
+        Generate Assignments 
+        <FaAngleRight className='self-center group-hover:translate-x-[5px] transition' />
+      </button>
     </div>
   );
 };

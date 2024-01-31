@@ -37,7 +37,7 @@ const Sidebar = ({onCategoryClick}) => {
         <ul className='flex flex-col w-full gap-4'>
           {subjects.map((subject) => (
             <li
-              className={`w-full bg-secondary px-6 py-4 flex flex-col border border-dark gap-2 align-middle justify-center cursor-pointer transition rounded-md font-medium shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] ${
+              className={`w-full bg-secondary px-6 py-4 flex flex-col  gap-2 align-middle justify-center cursor-pointer transition rounded-md font-medium shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] ${
                 selectedSubject === subject.key ? 'bg-selected' : ''
               }`}
               key={subject.key}
@@ -52,7 +52,7 @@ const Sidebar = ({onCategoryClick}) => {
                   {subject.categories.map((category, index) => (
                     <div
                       key={index}
-                      className={`hover:bg-primary px-2 py-1 rounded-sm ${
+                      className={`hover:bg-primary text-secondary px-2 py-1 rounded-sm ${
                         selectedCategory === category.name ? 'bg-selected' : ''
                       }`}
                       onClick={() => handleCategoryClick(category.name)}

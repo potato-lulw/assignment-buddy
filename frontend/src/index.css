@@ -85,13 +85,13 @@ select {
 
 @keyframes changeColor {
   0% {
-    background-color:  rgb(59 130 246 / var(--tw-bg-opacity)); /* Initial color */
+    background-color:  ; /* Initial color */
   }
   50% {
-    background-color: rgb(96 165 250 / var(--tw-bg-opacity)); /* Intermediate color */
+    background-color: ; /* Intermediate color */
   }
   100% {
-    background-color:  rgb(59 130 246 / var(--tw-bg-opacity)); /* Final color, same as initial for a smooth transition */
+    background-color:  ; /* Final color, same as initial for a smooth transition */
   }
 }
 

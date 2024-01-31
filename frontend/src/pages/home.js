@@ -28,10 +28,10 @@ const Home = () => {
   };
 
   return (
-    <div className="home flex md:flex-row flex-col flex-wrap">
+    <div className="home flex md:flex-row flex-col flex-wrap md:padding-container">
       {/* Button for toggling sidebar on small screens */}
       <button
-        className="md:hidden p-2 bg-blue-500 text-white flex align-middle min-w-0 items-center justify-center gap-2 w-full"
+        className="md:hidden p-2 bg-secondary  text-primary flex align-middle min-w-0 items-center justify-center gap-2 w-full"
         onClick={toggleSidebar}
       >
         Subjects <FaAngleRight className={`${hidden ? 'rotate-0 transition' : 'rotate-90 transition'} `} />

@@ -47,13 +47,13 @@ const Cards = ({ selectedSubject, selectedCategory }) => {
       case 'QuestionBank':
         return <QuestionbankCard questionbanks={questionbanks} />;
       default:
-        return <div>Select a category type from the sidebar</div>;
+        return <div className='text-center'>Select a category type from the sidebar</div>;
     }
   };
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">{`${selectedSubject.toUpperCase()}`}</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">{`${selectedSubject.toUpperCase()}`}</h2>
       {renderContent()}
     </div>
   );

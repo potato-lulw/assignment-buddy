@@ -128,10 +128,10 @@ const AddAssignment = () => {
     }
 
     return (
-        <form className='flex flex-col  justify-center align-middle gap-4 items-center mt-4 w-[80%] mx-auto'>
+        <form className='flex flex-col  justify-center align-middle gap-4 items-center mt-4 w-[80%] mx-auto text-secondary'>
             <label htmlFor='subject'>Subject</label>
             <select
-                className='w-[80%] bg-primary px-8 py-4 rounded-lg'
+                className='w-[80%] bg-secondary px-8 py-4 rounded-lg'
                 value={subject}
                 onChange={handleSubjectChange}
                 id='subject'
@@ -181,29 +181,29 @@ const AddAssignment = () => {
             <input
                 type='number'
                 id='number'
-                className='w-[80%] bg-primary px-8 py-4 rounded-lg'
+                className='w-[80%] bg-secondary px-8 py-4 rounded-lg'
                 value={assignmentNumber}
                 onChange={handleAssignmentNumberChange}
                 required
             />
-            <div className='flex flex-col md:flex-row justify-center w-full gap-12'>
+            <div className='flex flex-col md:flex-row justify-center w-full gap-12 '>
 
-                <div className='text-center'>
+                <div className='text-center flex flex-col md:flex-row  gap-2 '>
 
-                    <label htmlFor='date-given'>Date given: </label>
-                    <input required type="date" name="date-given" id="date-given" className='bg-primary px-8 py-4 rounded-lg' value={dateGiven} onChange={handleDateGivenChange}/>
+                    <label htmlFor='date-given' className='self-center'>Date given: </label>
+                    <input required type="date" name="date-given" id="date-given" className='bg-secondary px-8 py-4 rounded-lg' value={dateGiven} onChange={handleDateGivenChange}/>
                 </div>
 
-                <div className='text-center'>
+                <div className='text-center flex flex-col md:flex-row gap-2'>
 
-                    <label htmlFor='date-given'>Date of Submission: </label>
-                    <input type="date" name="date-given" id="date-given" className='bg-primary px-8 py-4 rounded-lg' value={dateSubmission} onChange={handleDateSubmissionChange}/>
+                    <label htmlFor='date-given' className='self-center'>Date of Submission: </label>
+                    <input type="date" name="date-given" id="date-given" className='bg-secondary px-8 py-4 rounded-lg' value={dateSubmission} onChange={handleDateSubmissionChange}/>
                 </div>
             </div>
 
-            <label className='text-primary ' htmlFor='questions'>Type it out (1 question per line)</label>
+            <label className='text-secondary ' htmlFor='questions'>Type it out (1 question per line)</label>
             <textarea
-                className='w-[80%] h-[200px] bg-primary text-secondary border-dark px-8 py-4 rounded-lg'
+                className='w-[80%] h-[200px] bg-secondary text-secondary px-8 py-4 rounded-lg'
                 placeholder='1) What is the meaning of life?
 2) Why are we still here?'
                 value={questions.join('\n')}
@@ -214,15 +214,15 @@ const AddAssignment = () => {
 
             
                     <label htmlFor='key'>Key</label>
-                    <input type="text" name="key" id="key" className='w-[80%] bg-primary px-8 py-4 rounded-lg' value={key} onChange={handleKeyChange}/>
+                    <input type="text" name="key" id="key" className='w-[80%] bg-secondary px-8 py-4 rounded-lg' value={key} onChange={handleKeyChange}/>
 
 
 
 
-            <label className='text-primary' htmlFor='btn'>Drop 'Em All!</label>
+            <label className='text-secondary' htmlFor='btn'>Drop 'Em All!</label>
             <div
                 {...getRootProps()}
-                className={`w-[80%] h-[200px] bg-primary rounded-lg text-secondary  flex justify-center items-center cursor-pointer border-dashed border-2 border-gray-650 ${isDragActive ? 'active' : ''
+                className={`w-[80%] h-[200px] bg-secondary rounded-lg text-secondary  flex justify-center items-center cursor-pointer border-dashed border-2 border-gray-650 ${isDragActive ? 'active' : ''
                     }`}
 
             >
@@ -236,12 +236,12 @@ const AddAssignment = () => {
                 ) : isDragActive ? (
                     <p>Drop the files here ...</p>
                 ) : (
-                    <div className='text-primary text-center p-8'>Drop files (.pdf)</div>
+                    <div className='text-secondary text-center p-8'>Drop files (.pdf)</div>
                 )}
             </div>
 
             {
-                !isDownloaded ? (<button className='w-[80%] border-gray-650 border-2 p-4 rounded-lg mb-4 hover:bg-primary transition' onClick={generateAssignment}>
+                !isDownloaded ? (<button className='w-[80%] border-gray-650 border-2 p-4 rounded-lg mb-4 hover:bg-secondary transition' onClick={generateAssignment}>
                     {isLoading ? <ProgressBar /> : 'SEND IT'}
                 </button>) : (
                     <div className='flex flex-col mb-4'>
