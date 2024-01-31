@@ -1,9 +1,12 @@
 
-# Asspal 
+# BIAS
+
+BIAS is a Bot for Instant Assignment Solving.
+
 
 Link : http://65.0.14.141/
 
-Asspal is a webapp that provides an automation tool to generate answers to your assignments, host and organise your assignments, experiments and other important study material.
+BIAS is a webapp that provides an automation tool to generate answers to your assignments, host and organise your assignments, experiments and other important study material.
 
 It uses multiple AIs to generate textual answers for the given questions and gives you a well structured downloadable PDF in few seconds.
 
@@ -58,8 +61,10 @@ See `contributing.md` for ways to get started.
 
 ### Owners
 
-- [Mayur Hiwale](https://www.github.com/isenseaura) - Lead Developer, Backend Development
-- [Om Patil](https://www.github.com/potato-lulw) - Frontend Development
+- [Mayur Hiwale](https://www.github.com/isenseaura) - Lead Developer | Backend Development
+- [Om Patil](https://www.github.com/potato-lulw) - UI/UX Design | Frontend Development
 
 ###  Contributors
+- [Shashank Bhave](https://github.com/CAPTAINxNEMO) - Frontend Development | [Feature Implementation](https://github.com/potato-lulw/assignment-buddy/issues/6)
+
 - [Himanshu Ranjan](https://www.github.com/RanjanH) - Bug Report
