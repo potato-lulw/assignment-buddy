@@ -41,7 +41,7 @@ const Home = () => {
         <Sidebar onCategoryClick={handleCategoryClick} />
       </div>
 
-      <div className="w-[100%] flex-1 overflow-hidden ">
+      <div className="w-[100%] flex-1 overflow-hidden md:ml-2 ">
         {(selectedSubject === null) ? (
           <Welcome userName={userName} />
         ) : (

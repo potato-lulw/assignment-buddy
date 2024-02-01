@@ -33,7 +33,7 @@
     @apply text-gray-650
   }
   .border-dark {
-    @apply border border-gray-750
+    @apply  border-gray-750
   }
   .padding-container {
     @apply px-6 lg:px-32 3xl:px-0;
